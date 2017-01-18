@@ -1,0 +1,38 @@
+{% extends 'basetp.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center"> {{ produit.nom }} </h1>
+
+            <div class="col-md-6 col-md-offset-3">
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <td>Nom :</td>
+                        <td> {{ produit.nom }} </td>
+                    </tr>
+                    <tr>
+                        <td>Prix :</td>
+                        <td> {{ produit.prix }} </td>
+                    </tr>
+                    <tr>
+                        <td>Type :</td>
+                        <td> {{ produit.type }} </td>
+                    </tr>
+                    <tr>
+                        <td>Saison :</td>
+                        <td> {{ produit.moisSemis }} </td>
+                    </tr>
+                    <tr>
+                        <td>Stock :</td>
+                        <td> {{ produit.stock }} </td>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

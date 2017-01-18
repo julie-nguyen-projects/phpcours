@@ -1,0 +1,47 @@
+{% extends 'basetp.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center">Mes fruits et légumes SANS OGM BORDEL </h1>
+
+            {% for product in listeFruitsLegumes %}
+                <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <img src="http://placehold.it/320x150" alt="image" />
+                            <h4 class="pull-right">{{ product.prix }} euros </h4>
+                            <h4>
+                                <a href="{{ path('one_product', {'id':product.id}) }}">
+                                    {{ product.nom }}
+                                </a>
+                            </h4>
+                            <p>Mois semis : {{ product.moisSemis|saison }} </p>
+                            <p>Stock : {{ product.stock }} </p>
+                            <p>Type : {{ product.type }} </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% if (prod_sess is defined) %}
+            <div class="row">
+                <h2>Dernier produit consulté : </h2>
+                <div class="thumbnail">
+                    <div class="caption">
+                        <img src="http://placehold.it/320x150" alt="image" />
+                        <h4 class="pull-right">{{ prod_sess.prix }} euros </h4>
+                        <h4>
+                            <a href="{{ path('one_product', {'id':prod_sess.id}) }}">
+                                {{ prod_sess.nom }}
+                            </a>
+                        </h4>
+                        <p>Mois semis : {{ prod_sess.moisSemis|saison }} </p>
+                        <p>Stock : {{ prod_sess.stock }} </p>
+                        <p>Type : {{ prod_sess.type }} </p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

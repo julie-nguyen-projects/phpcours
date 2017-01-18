@@ -1,0 +1,15 @@
+services:
+    app.fruitslegumesservices:
+        class:        AppBundle\Services\FruitsLegumesServices
+        arguments : ['@em']
+
+
+    app.twig_extension:
+        class: AppBundle\Twig\AppExtension
+        arguments : ['@app.fruitslegumesservices']
+        tags:
+          - { name: twig.extension }
+
+
+    em:
+        alias: doctrine.orm.entity_manager

@@ -1,0 +1,32 @@
+add_product:
+       path:        /admin/ajouter
+       defaults:     {_controller: AppBundle:Admin:nouveauProduit }
+
+all_products_admin:
+      path:        /admin/produits
+      defaults:     {_controller: AppBundle:Admin:afficherTout }
+
+delete_admin:
+       path:        /admin/delete/{id}
+       defaults:    {_controller: AppBundle:Admin:delete }
+       methods:     [GET]
+       requirements:
+           id:  \d+
+
+update_admin:
+       path:        /admin/update/{id}
+       defaults:    {_controller: AppBundle:Admin:update }
+       requirements:
+           id:  \d+
+
+all_products:
+       path:        /produits
+       defaults:     {_controller: AppBundle:Default:afficherTout }
+
+one_product:
+       path:        /produit/{id}
+       defaults:    {_controller: AppBundle:Default:afficherProduit }
+       methods:     [GET]
+       requirements:
+           id:  \d+
+
